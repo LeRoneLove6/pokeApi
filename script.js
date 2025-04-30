@@ -1,7 +1,7 @@
 
 async function fetchPokemon() {
-    let name = document.getElementById('pokemonname').innerHTML;
-
+    
+    let name = document.getElementById('pokemonname').value;
     try {
 
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/"+ name);
@@ -14,8 +14,12 @@ async function fetchPokemon() {
 }
 
 
+
 function displayPokemon(images) {
     const gallery = document.getElementById("gallery");
+
+   
+    
 
 
     const pokemonCards = images.map(imageUrl => `
