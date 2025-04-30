@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .image-container {
+            max-width: 600px;
+            margin: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgb(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+     
+    </style>
+    <script src="SCRIPT2.JS" defer></script>
+</head>
+<body>
+    <h1>Pokemon</h1>
+    <input id="pokemonname" type="pokemon Name" placeholder="Which Pokemon">
+    <button onclick="fetchPokemon()">Your Pick</button>
+    <div class="image-container" id="imagecontainer">
+        <div id="images"></div>
+    </div>
+</body>
+</html>
