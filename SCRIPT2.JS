@@ -8,50 +8,28 @@ async function fetchPokemon() {
         const data = await response.json();
         console.log(data.name);
        // displayPokemon(data.message);
+
+       //save the pokemon name.
+       let pokemon_name = data.name;
+       //save the pokemon image url.
+
+       let pokemon_image_url = data.sprites.front_default;
+       //retrieve the paragraph element with an id of 'name'
+
+       name_element = document.getElementById("name");
+       // set its text to the pokemon name.
+
+       name_element.innerHTML = pokemon_name;
+       // retreive the paragraph element with an id of 'pokemonimage'
+
+       image_element = document.getElementById("pokemonimage");
+       //set its src attribute equal to the value of 'pokemon_image_url
+
+       image_element.src = pokemon_image_url;
+
+  
+
     } catch (error) {
         console.error("Error fetching data:", error);
     }
 }
-
-// Function to fetch Pokémon sprite by name or ID
-async function getPokemonSprite(pokemonNameOrId) {
-    try {
-      // Fetch data from the PokéAPI
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNameOrId}`);
-      
-      if (!response.ok) {
-        throw new Error(`Pokémon not found: ${pokemonNameOrId}`);
-      }
-  
-      const data = await response.json();
-  
-      // Extract the sprite URL (default front sprite)
-      const spriteUrl = data.sprites.front_default;
-  
-      if (spriteUrl) {
-        console.log(`Sprite URL for ${pokemonNameOrId}: ${spriteUrl}`);
-        return spriteUrl;
-      } else {
-        console.log(`No sprite available for ${pokemonNameOrId}`);
-        return null;
-      }
-    } catch (error) {
-      console.error(`Error fetching Pokémon sprite: ${error.message}`);
-    }
-}
-
-const handleImages = async () => {
-    const imageContainer = document.getElementById('images');
-    try {
-        const spriteUrl = await getPokemonSprite();
-        imageContainer.innerHTML = `
-        <img src= "${pokemonNameOrId}: ${spriteUrl}" alt="image of pokemon">
-        `;
-    } catch (error) {
-        console.error(`Error handling images:`, error);
-    }
-}
-const updateImages = () => {
-    handleImages();
-};
-updateImages();
